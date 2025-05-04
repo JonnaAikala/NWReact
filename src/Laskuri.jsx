@@ -14,6 +14,10 @@ const Laskuri = ({huomio}) => {
 
         <button onClick={() => setLuku(luku + 1)}>+</button>
 
+        <button onClick={() => setLuku(luku - 1)}>-</button>
+
+        <button onClick={() => setLuku(0)}>Nollaa</button>
+
 
         <button onClick={huomio}>huomio</button>
 

@@ -9,6 +9,17 @@
   text-align: center;
 }
 
+.posts {
+  margin: auto;
+  background-color: aqua;
+  max-width: 70%;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: blueviolet;
+  margin-bottom: 2%;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

@@ -23,8 +23,8 @@ useEffect(() => {
         {
           posts && posts.map(p =>
             <div className='posts' key={p.id}>
-            <p>{p.id}</p>
-            <p>{p.title}</p>
+            <h4>{p.id}</h4>
+            <h5>{p.title}</h5>
             <p>{p.body}</p>
             </div>
           )

@@ -13,11 +13,17 @@ const App = () => {
     alert("Huomio!")
   }
 
+  const [showPosts, setShowPosts] = useState(false)
+
   return (
       <div className="App">
         <h1>Hello from React!</h1>
 
-        <Posts />
+        {showPosts && <Posts />}
+
+        {showPosts && <button onClick={() => setShowPosts(!showPosts)}>Piilota postaukset </button>}
+
+        {!showPosts && <button onClick={() => setShowPosts(!showPosts)}>Näytä postaukset </button>}
 
         {showLaskuri && <Laskuri huomio={huomio} />}
 
