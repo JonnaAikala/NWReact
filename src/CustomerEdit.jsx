@@ -70,30 +70,39 @@ const handleSubmit = (event) => {
                 <input type='text' value={newCustomerId} disabled/>
                 </div>
                 <div>
+                <label>Company Name </label>
                 <input type='text' value={newCompanyName} onChange={({target}) => setNewCompanyName(target.value)} required placeholder='Company Name'/>
                 </div>
                 <div>
+                <label>Contact Name </label>
                 <input type='text' value={newContactName} onChange={({target}) => setNewContactName(target.value)} placeholder='Contact Name'/>
                 </div>
                 <div>
+                <label>Contact Title</label>
                 <input type='text' value={newContactTitle} onChange={({target}) => setNewContactTitle(target.value)} placeholder='Contact Title'/>
                 </div>
                 <div>
+                <label>Address </label>
                 <input type='text' value={newAddress} onChange={({target}) => setNewAddress(target.value)} placeholder='Address'/>
                 </div>
                 <div>
+                <label>City </label>
                 <input type='text' value={newCity} onChange={({target}) => setNewCity(target.value)} placeholder='City'/>
                 </div>
                 <div>
+                <label>Postal Code </label>
                 <input type='text' value={newPostalCode} onChange={({target}) => setNewPostalCode(target.value)} placeholder='Postal Code'/>
                 </div>
                 <div>
+                <label>Country </label>
                 <input type='text' value={newCountry} onChange={({target}) => setNewCountry(target.value)} placeholder='Country'/>
                 </div>
                 <div>
+                <label>Phone </label>
                 <input type='text' value={newPhone} onChange={({target}) => setNewPhone(target.value)} placeholder='Phone'/>
                 </div>
                 <div>
+                <label>Fax </label>
                 <input type='text' value={newFax} onChange={({target}) => setNewFax(target.value)} placeholder='Fax'/>
                 </div>
 

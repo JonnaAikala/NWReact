@@ -47,6 +47,7 @@ const Customer = ({customer, editCustomer, setIsPositive, setMessage, setShowMes
             setMessage('Poisto peruttu onnistuneesti.')
                 setIsPositive(true)
                 setShowMessage(true)
+                window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert
 
                 //Ilmoituksen piilotus
                 setTimeout(() => {
@@ -59,8 +60,7 @@ const Customer = ({customer, editCustomer, setIsPositive, setMessage, setShowMes
   return (
       <div className='customerDiv'>
         <h4 onClick={() => setShowDetails(!showDetails)}>
-            {customer.companyName}
-            
+            {customer.companyName} , {customer.country}
             </h4>
 
         {showDetails && <div className="customerDetails">

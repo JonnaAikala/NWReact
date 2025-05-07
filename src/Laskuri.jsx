@@ -2,7 +2,7 @@ import './App.css'
 import React, {useState} from 'react'
 
 // Propsi otettu vastaan suoraan nimellä
-const Laskuri = ({huomio}) => {
+const Laskuri = () => {
 
     // Komponentin tilan määritys
     const [luku, setLuku] = useState(0)
@@ -18,8 +18,6 @@ const Laskuri = ({huomio}) => {
 
         <button onClick={() => setLuku(0)}>Nollaa</button>
 
-
-        <button onClick={huomio}>huomio</button>
 
       </>
   )
