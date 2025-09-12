@@ -4,8 +4,8 @@ import React, {useState, useEffect} from 'react'
 // Propsi otettu vastaan suoraan nimellä
 const Posts = () => {
 
-    // Komponentin tilan määritys
-    const [posts, setPosts] = useState([])
+// Komponentin tilan määritys
+const [posts, setPosts] = useState([])
 
 useEffect(() => {
   fetch("https://jsonplaceholder.typicode.com/posts")
@@ -14,23 +14,22 @@ useEffect(() => {
 },[]
 )
 
-
   return (
-      <>
+    <>
 
-        <h2>Posts from typicode</h2>
+      <h2>Posts from typicode</h2>
 
-        {
-          posts && posts.map(p =>
-            <div className='posts' key={p.id}>
+      {
+        posts && posts.map(p =>
+          <div className='posts' key={p.id}>
             <h4>{p.id}</h4>
             <h5>{p.title}</h5>
             <p>{p.body}</p>
-            </div>
+          </div>
           )
-        }
+      }
 
-      </>
+    </>
   )
 }
 

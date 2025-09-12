@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
 import Posts from './Posts'
 import CustomerList from './CustomerList'
+import ProductList from './ProductList'
 import UserList from './UserList'
 import Message from './Message'
+import Login from './Login'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -12,56 +14,84 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
-const App = () => {
 
-  // App komponentin tila
-  //Statet messagen näyttämistä varten
-  const [showMessage, setShowMessage] = useState(false)
-  const [message, setMessage] = useState('')
-  const [isPositive, setIsPositive] = useState(false)
+function App() {
 
+// App komponentin tila
+//Statet messagen näyttämistä varten
+const [showMessage, setShowMessage] = useState(false)
+const [message, setMessage] = useState('')
+const [isPositive, setIsPositive] = useState(false)
+const [loggedIn, setLoggedIn] = useState(false)
 
-return (
-  <div className="App">
-    <Router>
+useEffect(() => {
+    if (localStorage.getItem("username") !== null) {
+      setLoggedIn(true)
+    }
+  },[])
 
-      <Navbar bg="dark" variant="dark">
-        <Nav className="mr-auto">
-          <Nav.Link href='/customers'>Customers</Nav.Link>
-          <Nav.Link href='/posts'>Some highlights</Nav.Link>
-          <Nav.Link href='/users'>Users</Nav.Link>
-          <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
-        </Nav>
-      </Navbar>
+// Logout metodi
+const logout = () => {
+  localStorage.clear()
+  setLoggedIn(false)
+}
 
-      <h1>Northwind Corporation</h1>
+const headerStyle = {color: "blue", backgroundColor: "red"}
 
-      {showMessage && <Message message={message} isPositive={isPositive} /> }
+  return (
+    <div className="App">
 
-      <Routes>
-        <Route path="/customers"
-        element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive}
-      setShowMessage={setShowMessage} />}>
-      </Route>
+        <Router>
 
-        <Route path="/users"
-        element={<UserList setMessage={setMessage} setIsPositive={setIsPositive}
-      setShowMessage={setShowMessage} />}>
-      </Route>
+          <Navbar bg="dark" variant="dark">
+           <Nav className="mr-auto">
+             <Nav.Link href='/customers'>Customers</Nav.Link>
+             <Nav.Link href='/products'>Products</Nav.Link>
+             <Nav.Link href='/posts'>Some highlights</Nav.Link>
+             <Nav.Link href='/users'>Users</Nav.Link>
+              <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
+             {loggedIn && <button onClick={() => logout()}>Log out</button>}
+            </Nav>
+        </Navbar>
 
-      <Route path="/posts"
-      element={<Posts info="Nämä ovat yhtiön sosiaalisen median parhaita poimintoja."
-        tervehdys="Hello!"/>}>
-        </Route>
+         <h1 style={headerStyle}>Northwind Corporation</h1>
 
-        <Route path="/laskuri"
-        element={<Laskuri />}>
-        </Route>
+         {showMessage && <Message message={message} isPositive={isPositive} /> }
 
-      </Routes>
-    </Router>
-  </div>
-)
+         {!loggedIn && <Login setMessage={setMessage} setIsPositive={setIsPositive} 
+          setShowMessage={setShowMessage} setLoggedIn={setLoggedIn} />}
+          
+      {loggedIn &&
+          <Routes>
+           <Route path="/customers"
+             element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive}
+             setShowMessage={setShowMessage} />}>
+            </Route>
+
+            <Route path="/products"
+             element={<ProductList setMessage={setMessage} setIsPositive={setIsPositive}
+             setShowMessage={setShowMessage} />}>
+            </Route>
+
+           <Route path="/users"
+             element={<UserList setMessage={setMessage} setIsPositive={setIsPositive}
+              setShowMessage={setShowMessage} />}>
+           </Route>
+
+            <Route path="/posts"
+            element={<Posts info="Nämä ovat yhtiön sosiaalisen median parhaita poimintoja."
+            tervehdys="Hello!"/>}>
+          </Route>
+
+          <Route path="/laskuri"
+            element={<Laskuri />}>
+          </Route>
+
+        </Routes> }
+      </Router>
+
+    </div>
+  )
 }
 
 

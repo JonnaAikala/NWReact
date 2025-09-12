@@ -36,6 +36,10 @@ const handleSubmit = (event) => {
             fax: newFax
         }
 
+        const token = localStorage.getItem('token')
+            CustomerService
+                .setToken(token)
+                
         CustomerService.create(newCustomer)
         .then(response => {
             if (response.status === 200) {
@@ -44,7 +48,7 @@ const handleSubmit = (event) => {
                 setShowMessage(true)
 
                 setTimeout(() => {
-                setShowMessage(false)
+                 setShowMessage(false)
                 }, 3000)
 
                 setLisäystila(false)

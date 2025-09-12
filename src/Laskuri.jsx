@@ -4,22 +4,22 @@ import React, {useState} from 'react'
 // Propsi otettu vastaan suoraan nimellä
 const Laskuri = () => {
 
-    // Komponentin tilan määritys
-    const [luku, setLuku] = useState(0)
+// Komponentin tilan määritys
+const [luku, setLuku] = useState(0)
 
   return (
-      <>
+    <>
 
-        <h3>{luku}</h3>
+      <h3>{luku}</h3>
 
-        <button onClick={() => setLuku(luku + 1)}>+</button>
+      <button onClick={() => setLuku(luku + 1)}>+</button>
 
-        <button onClick={() => setLuku(luku - 1)}>-</button>
+      <button onClick={() => setLuku(luku - 1)}>-</button>
 
-        <button onClick={() => setLuku(0)}>Nollaa</button>
+      <button onClick={() => setLuku(0)}>Nollaa</button>
 
 
-      </>
+    </>
   )
 }
 
