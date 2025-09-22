@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const loginUrl = "https://localhost:7210/api/authentication"
+const loginUrl = "https://northwindrestapijonnaaikala-eycfd4c8c6hggugu.swedencentral-01.azurewebsites.net"
 
 const Login = (object) => {
     const request = axios.post(loginUrl, object)
